@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>easyCode</title>
+</head>
+<body id="bb">
+    <script>
+    // Using a different bridge that plays nicer with VS Code Live Server
+    const bridge = 'https://corsproxy.io/?';
+    const pastebin = 'https://pastebin.com/raw/nkYM09va';
+
+    fetch(bridge + encodeURIComponent(pastebin), { cache: "no-cache" })
+      .then(res => res.text())
+      .then(css => {
+        const style = document.createElement('style');
+        style.textContent = css;
+        document.head.appendChild(style);
+        console.log("Library Loaded Successfully!");
+      })
+      .catch(err => console.error("VS Code Blocked the fetch: ", err));
+  </script>
+   <div id="w" style="text-align: center; margin: 25%;"><h1>Welcome to <u>easyCode</u></h1>
+  <p>making coding easy for everyone!</p>
+   </div>
+</body>
+</html>
