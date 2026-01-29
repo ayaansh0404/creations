@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>easyCode</title>
-</head>
-<body id="bb">
-    <script>
-    // Using a different bridge that plays nicer with VS Code Live Server
-    const bridge = 'https://corsproxy.io/?';
-    const pastebin = 'https://pastebin.com/raw/nkYM09va';
-
-    fetch(bridge + encodeURIComponent(pastebin), { cache: "no-cache" })
-      .then(res => res.text())
-      .then(css => {
-        const style = document.createElement('style');
-        style.textContent = css;
-        document.head.appendChild(style);
-        console.log("Library Loaded Successfully!");
-      })
-      .catch(err => console.error("VS Code Blocked the fetch: ", err));
+<style>
+    .padding {
+      background-color: #444;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+</style>
+  <title>easyCode</title>
+  <script>
+    fetch('https://corsproxy.io/?https://shorturl.at/Ua5Iq').then(r=>r.text()).then(t=>document.head.insertAdjacentHTML('beforeend',`<style>${t}`))
   </script>
-   <div id="w" style="text-align: center; margin: 25%;"><h1>Welcome to <u>easyCode</u></h1>
-  <p>making coding easy for everyone!</p>
-   </div>
+</head>
+<body id="bbl" style="color: white;">
+
+  <div style="text-align: center; padding-top: 100px; font-family: sans-serif;">
+
+    <img src="easy.png" alt="EasyCode logo" width="600"><br>
+
+    <div id="bbl" style="color: #9cdcfe; padding: 20px; border-radius: 12px; display: inline-block; margin-top: 50px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #333; font-family: monospace; max-width: 90%; background: #252526; overflow-x: auto;">
+      
+      <div style="margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+        <span style="color: #666; font-size: 12px;">install-easycode.html</span>
+      </div>
+
+      <code>
+        &lt;script&gt;</span><br><br>
+        fetch('https://corsproxy.io/?https://shorturl.at/Ua5Iq').then(r=>r.text()).then(t=>document.head.innerHTML+=`&lt;style&gt;</span>${t}`)<br><br>
+       &lt;/script&gt;
+      </code><br>
+    </div>
+    <p>Put this code ⬆️ in your HTML head to use easyCode.
+    what you can do with easyCode: color your <u>text</u> with an id.<br>
+    <div class="padding" id="r"> <p>Red- add an id and name it "r" </p></div>
+    <div class="padding" id="o"> <p>orange- add an id and name it "o"</p></div> <br>
+    <div class="padding" id="y"> <p>yellow- add an id and name it "y"</p></div> 
+    <div class="padding" id="g"> <p>green- add an id and name it "g"</p></div>
+     <br><div class="padding" id="b"> <p>blue- add an id and name it "b"</p></div> 
+     <div class="padding" id="p"> <p>purple- add an id and name it "p"</p></div> 
+     <br><div class="padding" id="bbl"><span id="w"><p>white- add an id and name it "w"</p></span></div>
+      <div class="padding" id="bl"><p>black- add an id and name it "bl"</p></div></p>
+  
+
+<p>you can also make background colors with an id.</p><br>
+<div class="padding" id="br"><p>Red- add an id and name it "br" </p></div>
+<div class="padding" id="bo"> <p>orange- add an id and name it "bo"</p></div> <br>
+<div class="padding" id="by"> <p>yellow- add an id and name it "by"</p></div> 
+<div class="padding" id="bg"> <p>green- add an id and name it "bg"</p></div> <br>
+<div class="padding" id="bb"><p>blue- add an id and name it "bb"</p></div>   
+<div class="padding" id="bp"><p>purple- add an id and name it "bp"</p></div> 
+<br><div class="padding"  style="background-color: #444;"  id="bw"><span class="padding" id="bl"><p>white- add an id and name it "bw"</p></span></div></div>
+<div class="padding" id="bbl"><span class="padding" id="w"><p>black- add an id and name it "bbl"</p></span></div>
+<br><br><br><br><br>
+<p>by Ayaansh Agrawal copy-right© 2026</p>
+  </div> 
+
 </body>
 </html>
