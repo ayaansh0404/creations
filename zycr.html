@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zycr</title>
+
+  <!-- easyCode CSS injected dynamically -->
+ <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
+
+  <script src="https://gist.githack.com/ayaansh0404/56ef5b7e898458b07870ec57a158fdae/raw/zycr.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .padding {
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .padding:hover {
+      transform: scale(1.5);
+    }
+
+    .section-title {
+      margin-top: 30px;
+      font-size: 18px;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    code {
+      display: block;
+      background: #252526;
+      color: #9cdcfe;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+  </style>
+  
+
+  <meta name="description" content="zycr is a simple tool to style HTML using easy classes. Created by Ayaansh Agrawal.">
+
+<meta name="author" content="Ayaansh Agrawal">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="bbl w">
+
+  <div class="container">
+    <img src="zycr.png" alt="zycr logo" width="400"><br>
+
+    <div class="section-title">Install Zycr</div>
+    <p>Put this code in your HTML head to use Zycr:</p>
+   <h3>css:</h3> 
+    <code>
+     
+&lt;link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css"&gt;
+
+    </code>
+
+    <div class="section-title">Text Colors</div>
+    <div class="padding r">Red — class "r"</div>
+    <div class="padding o">Orange — class "o"</div>
+    <div class="padding y">Yellow — class "y"</div>
+    <div class="padding g">Green — class "g"</div>
+    <div class="padding b">Blue — class "b"</div>
+    <div class="padding p">Purple — class "p"</div>
+    <div class="padding w">White — class "w"</div>
+    <div class="padding  bw bl ">Black — class "bl"</div>
+
+    <div class="section-title">Background Colors</div>
+    <div class="padding br w">Red — class "br"</div>
+    <div class="padding bo w">Orange — class "bo"</div>
+    <div class="padding by w bl">Yellow — class "by"</div>
+    <div class="padding bg w">Green — class "bg"</div>
+    <div class="padding bb w">Blue — class "bb"</div>
+    <div class="padding bp w">Purple — class "bp"</div>
+    <div class="padding bw bl">White — class "bw"</div>
+    <div class="padding bbl w">Black — class "bbl"</div>
+    <div class="section-title">Spin Example</div>
+    <div class="padding spin w">Spinning Box — class "spin"
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <b>JS:</b><br>
+ <code>
+     
+&lt;script src="https://gist.githack.com/ayaansh0404/56ef5b7e898458b07870ec57a158fdae/raw/zycr.js"&gt;
+&lt;/script&gt;
+
+    </code>
+     <div class="section-title">Text Colors</div>
+    <div onclick="onR()" class="padding">Red — class "r"</div>
+    <div onclick="onO()" class="padding">Orange — class "o"</div>
+    <div onclick="onY()" class="padding">Yellow — class "y"</div>
+    <div onclick="onG()" class="padding">Green — class "g"</div>
+    <div onclick="onB()" class="padding">Blue — class "b"</div>
+    <div onclick="onP()" class="padding">Purple — class "p"</div>
+    <div onclick="onW()" class="padding">White — class "w"</div>
+    <div onclick="onBw(); onBl()" class="padding">Black — class "bl"</div>
+
+    <div class="section-title">Background Colors</div>
+    <div onclick="onBr()" class="padding">click me for red— onclick = "onBr()"</div>
+    <div onclick="onBo()" class="padding w">click me for orange— onclick = "onBo()"</div>
+    <div onclick="onBy(); onBl()" class="padding w">click me for yellow— onclick = "onBy()"</div>
+    <div onclick="onBg()" class="padding w">click me for green— onclick = "onBg()"</div>
+    <div onclick="onBb()" class="padding w">click me for blue— onclick = "onBb()"</div>
+    <div onclick="onBp()" class="padding w">click me for purple— onclick = "onBp()"</div>
+    <div onclick="onBw(); onBl()" class="padding w">click me for white— onclick = "onBw()"</div>
+    <div onclick="onBbl()" class="padding bbl w">click me for black— onclick = "onBbl()"</div>
+    <div class="section-title">Spin Example</div>
+    <div onclick="onSpin()" class="padding w">click me for spin— onclick = "onSpin()"
+    </div>
+    <br><br>
+    <p>by Ayaansh Agrawal copyright© 2026</p>
+
+  </div>
+
+</body>
+</html>
