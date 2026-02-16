@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Choose Mode</title>
+    <style>
+        body {
+            background: linear-gradient( to bottom right, #39FF14, #1e1e1e , #1e1e1e , #1e1e1e ,#1e1e1e ,  #39FF14);
+            min-height: 100vh;
+            margin: 0;
+            animation: grad 3s ease;
+        }
+    
+          
+        .main-btns button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .main-btns button:hover {
+            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+            animation-name: grow;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes grow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        .main-btns {
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: #39FF14 0px 0px 40px;
+            font-family: sans-serif;
+        }
+
+        .main-btns h1 {
+            animation: fadeInDown 1s;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mode-desc {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-btns">
+        <h1>Choose Your Mode</h1>
+        <div class="mode-desc">Select a mode to start your coding journey!</div>
+        <a href="codeAdvanced.html" title="For experienced coders">
+            <button>
+                <span class="icon">⚡</span> Advanced
+            </button>
+        </a>
+        <a href="codeBeginer.html">
+            <button>
+                <span class="icon">👨‍🎓</span> Beginner
+            </button>
+        </a>
+    </div>
+</body>
+
+</html>

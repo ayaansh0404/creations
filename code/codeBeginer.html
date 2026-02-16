@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <title>Document</title>
+        <style>
+             body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;  
+        font-family:serif;
+        background-color: #1e1e1e;
+    }
+
+    
+    textarea {
+        background-color: #0d1117;
+        color: #e6edf3;
+        width: 100%;
+        height: 50vh;
+        padding: 15px;
+        resize: none;
+    }
+    
+    textarea::placeholder {
+        color: #6e7681;
+        opacity: 1;
+        font-style: italic;
+    }
+    
+    button {
+        width: 100%;
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+    }
+    
+    button:hover {
+        background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.5);
+        transform: translateY(-2px);
+    }
+    
+    button:active {
+        transform: translateY(0);
+    }
+    iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+        background-color: white;
+    }
+        </style>
+        <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script>
         function run() {
             const html = document.getElementById('h').value;
@@ -11,15 +66,16 @@
             const js = `<script>${document.getElementById('j').value}<\/script>`;
             document.getElementById('i').srcdoc = html + css + js;
         }
-        
     </script>
 </head>
-<body>
-    <div>
+<body class="bbl">
+        <div class="container-fluid">
+        <div class="row">
         <button onclick="run()">run</button>
-       <textarea id="h" placeholder="html"></textarea>
-       <textarea id="c" placeholder="css"></textarea>
-       <textarea id="j" placeholder="javascript"></textarea>
+       <textarea class="col " id="h" placeholder="html"></textarea>
+       <textarea class="col" id="c" placeholder="css"></textarea>
+       <textarea class="col" id="j" placeholder="javascript"></textarea>
+       </div>
        <iframe id="i"></iframe>
     </div>
 </body>
