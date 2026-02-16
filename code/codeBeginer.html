@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function run() {
+            const html = document.getElementById('h').value;
+            const css = `<style>${document.getElementById('c').value}</style>`;
+            const js = `<script>${document.getElementById('j').value}<\/script>`;
+            document.getElementById('i').srcdoc = html + css + js;
+        }
+        
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="run()">run</button>
+       <textarea id="h" placeholder="html"></textarea>
+       <textarea id="c" placeholder="css"></textarea>
+       <textarea id="j" placeholder="javascript"></textarea>
+       <iframe id="i"></iframe>
+    </div>
+</body>
+</html>
