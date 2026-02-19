@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Document</title>
+        <title>Beginner</title>
         <style>
+               .editor-container {
+            display: flex; 
+            flex-grow: 1;
+               }
+                 .toolbar {
+            padding: 10px;
+            background: #252525;
+            border-bottom: 1px solid #333;
+        }
              body {
         margin: 0;
         height: 100vh;
@@ -32,7 +41,7 @@
         background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         color: white;
         padding: 12px 24px;
-        border-radius: 6px;
+        border-radius: 20px;
         border: none;
         cursor: pointer;
         font-weight: 600;
@@ -69,14 +78,22 @@
     </script>
 </head>
 <body class="bbl">
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row toolbar">
+            <div class="col-4"><button onclick="run()">▶ RUN</button></div>
+            <div class="col-4"><button onclick="const h=document.getElementById('h').value,c='<style>'+document.getElementById('c').value+'</style>',j='<script>'+document.getElementById('j').value+'<\/script>',a=document.createElement('a');a.href='data:text/html;charset=utf-8,'+encodeURIComponent(h+c+j);a.download='index.html';a.click();">💾 SAVE</button></div>
+            <div class="col-4"><button onclick="let i=document.createElement('input');i.type='file';i.onchange=e=>{let f=e.target.files[0],r=new FileReader();r.onload=a=>document.getElementById('h').value=a.target.result;r.readAsText(f)};i.click()">📂 OPEN</button></div>
+        </div>
+
         <div class="row">
-        <button onclick="run()">run</button>
-       <textarea class="col " id="h" placeholder="html"></textarea>
-       <textarea class="col" id="c" placeholder="css"></textarea>
-       <textarea class="col" id="j" placeholder="javascript"></textarea>
-       </div>
-       <iframe id="i"></iframe>
+            <textarea class="col" id="h" placeholder="html"></textarea>
+            <textarea class="col" id="c" placeholder="css"></textarea>
+            <textarea class="col" id="j" placeholder="javascript"></textarea>
+        </div>
+
+        <div class="row">
+            <iframe id="i"></iframe>
+        </div>
     </div>
 </body>
 </html>

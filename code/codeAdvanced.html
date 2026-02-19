@@ -1,72 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <style>
-    /* * {
-        box-sizing: border-box;
-    }
-     */
-    body {
-        margin: 0;
-        height: 100vh;
-        overflow: hidden;  
-        font-family:serif;
-        background-color: #1e1e1e;
-    }
+    <title>Advanced Mode</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Stack Toolbar, then Content */
+            background-color: #1e1e1e;
+            font-family: sans-serif;
+        }
 
-    
-    textarea {
-        background-color: #0d1117;
-        color: #e6edf3;
-        width: 100%;
-        height: 100%;
-        padding: 15px;
-        resize: none;
-    }
-    
-    textarea::placeholder {
-        color: #6e7681;
-        opacity: 1;
-        font-style: italic;
-    }
-    
-    button {
-        width: 100%;
-        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 14px;
-        margin: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
-    }
-    
-    button:hover {
-        background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
-        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.5);
-        transform: translateY(-2px);
-    }
-    
-    button:active {
-        transform: translateY(0);
-    }
-    iframe {
-        width: 100%;
-        height: 100vh;
-        border: none;
-        background-color: white;
-    }
-     </style>
-    <title>Document</title>
+        /* The Toolbar area */
+        .toolbar {
+            padding: 10px;
+            background: #252525;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Buttons Fix */
+        button {
+            width: 100%; /* Now fills the Bootstrap column correctly */
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        /* Split Screen Container */
+        .editor-container {
+            display: flex; /* Side-by-side layout */
+            flex-grow: 1; /* Take up remaining height */
+        }
+
+        textarea {
+            background-color: #0d1117;
+            color: #e6edf3;
+            width: 50%; /* Half the screen */
+            height: 100%;
+            padding: 15px;
+            resize: none;
+            border: none;
+            outline: none;
+            font-family: monospace;
+        }
+
+        iframe {
+            width: 50%; /* Other half of the screen */
+            height: 100%;
+            border: none;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
-    <a href="#gocode"><button onclick="i.srcdoc = t.value" id="goframe">RUN</button></a>
-    <textarea placeholder="type code here..." id="t"></textarea>
-    <a href="#goframe"><button id="gocode">GO TO CODE</button></a>
-    <iframe  id="i" style="width: 100%;"></iframe>
+
+    <div class="toolbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <button onclick="i.srcdoc = t.value">▶ RUN</button>
+                </div>
+                <div class="col-4">
+                    <button onclick="const a=document.createElement('a'); a.href='data:text/html;charset=utf-8,'+encodeURIComponent(t.value); a.download='index.html'; a.click();">💾 SAVE</button>
+                </div>
+                <div class="col-4">
+                    <button onclick="let input=document.createElement('input');input.type='file';input.onchange=e=>{let f=e.target.files[0];let r=new FileReader();r.onload=a=>t.value=a.target.result;r.readAsText(f)};input.click()">📂 OPEN</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="editor-container">
+        <textarea placeholder="Type your HTML/CSS/JS here..." id="t"></textarea>
+        <iframe id="i"></iframe>
+    </div>
+
 </body>
 </html>
