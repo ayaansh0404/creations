@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#h3 {
+  margin-left: 100px;
+}
+#two {
+  margin-left: 1200px;
+}
+.three {
+  font-size: 500px;
+  margin-bottom: 1000px;
+}
+#invited {
+  margin-left: 500px;
+}
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>ayaansh's Birthday</title>
+</head>
+
+<body class = "text-white bg-dark"><br><br><br><br><br><br>
+
+<h3 id="h3">dun</h3>
+<h3 id="invited"></h3>
+<h3 id="two"></h3>
+<h1 id="three" class="text-center three"></h1>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script>
+// after 2s → show second
+setTimeout(function () {
+  document.getElementById('h3').style.display = "none";
+  document.getElementById('two').innerHTML = "dun";
+}, 1500);
+
+// after 4s → show third
+setTimeout(function () {
+  document.getElementById('two').style.display = "none";
+  document.getElementById('three').innerHTML = "DUN";
+}, 3000);
+
+// optional: hide third later
+setTimeout(function () {
+  document.getElementById('three').style.display = "none";
+  document.getElementById('invited').innerHTML = "You have been invited to ayaansh's birthday party!";
+
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { x: 0.5, y: 0.5 }, // center of screen
+    colors: ['#ff5252', '#ffeb3b', '#4caf50', '#03a9f4', '#ff9800'],
+  });
+
+}, 4500);
+setTimeout(function () {
+  document.getElementById('invited').innerHTML = "Get ready to celebrate with cake, games, and lots of fun! Can't wait to see you there!"
+
+}, 6000);
+</script>
+
+</body>
+</html>

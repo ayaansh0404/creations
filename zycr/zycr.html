@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Zycr</title>
   <link rel="icon" href="zycr.png">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <!-- easyCode CSS injected dynamically -->
- <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
+  <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
 
-  <script src="https://gist.githack.com/ayaansh0404/d0cde3c6c45c5c1280f30912a55ee1c5/raw/f31c1cc00a4b2a25adecc2201078bf4e7ebef1fb/zycrr.js"></script>
+  <script
+    src="https://gist.githack.com/ayaansh0404/d0cde3c6c45c5c1280f30912a55ee1c5/raw/f31c1cc00a4b2a25adecc2201078bf4e7ebef1fb/zycrr.js"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -31,7 +34,7 @@
 
     .section-title {
       margin-top: 30px;
-      font-size: 18px;
+      font-size: 40px;
       text-decoration: underline;
     }
 
@@ -50,14 +53,75 @@
       margin-bottom: 20px;
       overflow-x: auto;
     }
+
+    code[class*="language-"] {
+      display: block;
+      /* Makes it a full-width box */
+      padding: 20px !important;
+      margin: 20px auto !important;
+      border-radius: 10px;
+      text-align: left;
+      /* Keeps code readable */
+      max-width: 90%;
+      /* Keeps it from hitting the screen edges */
+      overflow-x: auto;
+      /* Adds a scrollbar if the code is too long */
+    }
+
+    /* Layout for the playground */
+    #t,
+    #i,#it,#tt {
+      width: 100%;
+      /* Makes them the same width */
+      max-width: 800px;
+      /* Limits how wide they get on big screens */
+      height: 300px;
+      /* Makes them the same height */
+      margin: 10px auto;
+      /* Centers them */
+      border-radius: 8px;
+      border: 2px solid #444;
+      box-sizing: border-box;
+      /* Ensures padding doesn't break the width */
+    }
+
+    #t {
+      font-family: monospace;
+      padding: 15px;
+      resize: vertical;
+      /* Allows user to pull it down but not wide */
+    }
+
+    /* Style for the Run button */
+    .run-btn {
+      margin-top: 50px;
+
+      font-size: 18px;
+      cursor: pointer;
+      width: 100px;
+      box-sizing: border-box;
+      /* This forces the button to be EXACTLY 100px */
+    }
+
+    .run-btn,
+    button.bg.w[onclick] {
+      width: 790px !important;
+      padding: 20px !important;
+    }
+
+    .editor {
+      margin-left: 320px;
+      margin-right: 320px;
+    }
   </style>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 
-  <meta name="description" content="zycr is a simple tool to style HTML using easy classes. Created by Ayaansh Agrawal.">
+  <meta name="description"
+    content="zycr is a simple tool to style HTML using easy classes. Created by Ayaansh Agrawal.">
 
-<meta name="author" content="Ayaansh Agrawal">
+  <meta name="author" content="Ayaansh Agrawal">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="bbl w">
@@ -67,72 +131,205 @@
 
     <div class="section-title">Install Zycr</div>
     <p>Put this code in your HTML head to use Zycr:</p>
-   <h3>css:</h3> 
-    <code>
-     
+    <h3>css:</h3>
+    <code class="language-html">
+
 &lt;link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css"&gt;
 
     </code>
 
     <div class="section-title">Text Colors</div>
-    <div class="padding r">Red — class="r"</div>
-    <div class="padding o">Orange — class="o"</div>
-    <div class="padding y">Yellow — class="y"</div>
-    <div class="padding g">Green — class="g"</div>
-    <div class="padding b">Blue — class="b"</div>
-    <div class="padding p">Purple — class="p"</div>
-    <div class="padding w">White — class="w"</div>
-    <div class="padding  bw bl ">Black — class="bl"</div>
+    <div class="padding r">&lt;button class = "r"&gt;Red&lt;/button&gt;</div>
+    <div class="padding o">&lt;button class = "o"&gt;Orange&lt;/button&gt;</div>
+    <div class="padding y">&lt;button class = "y"&gt;Yellow&lt;/button&gt;</div>
+    <div class="padding g">&lt;button class = "g"&gt;Green&lt;/button&gt;</div>
+    <div class="padding b">&lt;button class = "b"&gt;Blue&lt;/button&gt;</div>
+    <div class="padding p">&lt;button class = "p"&gt;Purple&lt;/button&gt;</div>
+    <div class="padding w">&lt;button class = "w"&gt;White&lt;/button&gt;</div>
+    <div class="padding  bw bl ">&lt;button class = "bl"&gt;Black&lt;/button&gt;</div>
 
     <div class="section-title">Background Colors</div>
-    <div class="padding br w">Red — class="br"</div>
-    <div class="padding bo w">Orange — class="bo"</div>
-    <div class="padding by w bl">Yellow — class="by"</div>
-    <div class="padding bg w">Green — class="bg"</div>
-    <div class="padding bb w">Blue — class="bb"</div>
-    <div class="padding bp w">Purple — class="bp"</div>
-    <div class="padding bw bl">White — class="bw"</div>
-    <div class="padding bbl w">Black — class="bbl"</div>
+    <div class="padding br w">&lt;button class = "br"&gt;Red&lt;/button&gt;</div>
+    <div class="padding bo w">&lt;button class = "bo"&gt;Orange&lt;/button&gt;</div>
+    <div class="padding by w bl">&lt;button class = "by"&gt;Yellow&lt;/button&gt;</div>
+    <div class="padding bg w">&lt;button class = "bg"&gt;Green&lt;/button&gt;</div>
+    <div class="padding bb w">&lt;button class = "bb"&gt;Blue&lt;/button&gt;</div>
+    <div class="padding bp w">&lt;button class = "bp"&gt;Purple&lt;/button&gt;</div>
+    <div class="padding bw bl">&lt;button class = "bw"&gt;White&lt;/button&gt;</div>
+    <div class="padding bbl w">&lt;button class = "bbl"&gt;Black&lt;/button&gt;</div>
     <div class="section-title">Spin Example</div>
-    <div class="padding spin w">Spinning Box — class "spin"
+    <div class="padding spin w">&lt;button class = "spin"&gt;Spinning Button&lt;/button&gt;
     </div>
     <br><br><br><br><br><br><br><br>
     <b>JS:</b><br>
- <code>
-     
+    <code class="language-html">
+
 &lt;script src="https://gist.githack.com/ayaansh0404/46ea8a6b84142db3a60dfcdda851792b/raw/03ae9ebcb86592a6c7dbda05271d9193cdc4902e/gistfile1.txt"&gt;
 &lt;/script&gt;
-
+<!-- onclick -->
     </code>
-     <div class="section-title">Text Colors</div>
-    <div onclick="onR()" class="padding">click me for red— onclick = "onR()"</div>
-    <div onclick="onO()" class="padding">click me for orange— onclick = "onO()"</div>
-    <div onclick="onY()" class="padding">click me for yellow— onclick = "onY()"</div>
-    <div onclick="onG()" class="padding">click me for green— onclick = "onG()"</div>
-    <div onclick="onB()" class="padding">click me for blue— onclick = "onB()"</div>
-    <div onclick="onP()" class="padding">click me for purple— onclick = "onP()"</div>
-    <div onclick="onW()" class="padding">click me for white— onclick = "onW()"</div>
-    <div onclick="onBw(); onBl()" class="padding">click me for black— onclick = "onBw()"</div>
+    <div class="section-title">Text Colors (onclick)</div>
+    <div onclick="onR()" class="padding">&lt;button onclick = "onR()"&gt;Red&lt;/button&gt;</div>
+    <div onclick="onO()" class="padding">&lt;button onclick = "onO()"&gt;Orange&lt;/button&gt;</div>
+    <div onclick="onY()" class="padding">&lt;button onclick = "onY()"&gt;Yellow&lt;/button&gt;</div>
+    <div onclick="onG()" class="padding">&lt;button onclick = "onG()"&gt;Green&lt;/button&gt;</div>
+    <div onclick="onB()" class="padding">&lt;button onclick = "onB()"&gt;Blue&lt;/button&gt;</div>
+    <div onclick="onP()" class="padding">&lt;button onclick = "onP()"&gt;Purple&lt;/button&gt;</div>
+    <div onclick="onW()" class="padding">&lt;button onclick = "onW()"&gt;White&lt;/button&gt;</div>
+    <div onclick="onBw(); onBl()" class="padding">&lt;button onclick = "onBw(); onBl()"&gt;Black&lt;/button&gt;</div>
 
-    <div class="section-title">Background Colors</div>
-    <div onclick="onBr()" class="padding">click me for red— onclick = "onBr()"</div>
-    <div onclick="onBo()" class="padding w">click me for orange— onclick = "onBo()"</div>
-    <div onclick="onBy(); onBl()" class="padding w">click me for yellow— onclick = "onBy()"</div>
-    <div onclick="onBg()" class="padding w">click me for green— onclick = "onBg()"</div>
-    <div onclick="onBb()" class="padding w">click me for blue— onclick = "onBb()"</div>
-    <div onclick="onBp()" class="padding w">click me for purple— onclick = "onBp()"</div>
-    <div onclick="onBw(); onBl()" class="padding w">click me for white— onclick = "onBw()"</div>
-    <div onclick="onBbl()" class="padding bbl w">click me for black— onclick = "onBbl()"</div>
+    <div class="section-title">Background Colors(onclick)</div>
+    <div onclick="onBr()" class="padding">&lt;button class = "br"&gt;Red&lt;/button&gt;</div>
+    <div onclick="onBo()" class="padding w">&lt;button class = "bo"&gt;Orange&lt;/button&gt;</div>
+    <div onclick="onBy(); onBl()" class="padding w">&lt;button class = "by"&gt;Yellow&lt;/button&gt;</div>
+    <div onclick="onBg()" class="padding w">&lt;button class = "bg"&gt;Green&lt;/button&gt;</div>
+    <div onclick="onBb()" class="padding w">&lt;button class = "bb"&gt;Blue&lt;/button&gt;</div>
+    <div onclick="onBp()" class="padding w">&lt;button class = "bp"&gt;Purple&lt;/button&gt;</div>
+    <div onclick="onBw(); onBl()" class="padding w">&lt;button class = "bw"&gt;White&lt;/button&gt;</div>
+    <div onclick="onBbl()" class="padding bbl w">&lt;button class = "bbl"&gt;Black&lt;/button&gt;</div>
     <div class="section-title">Spin Example</div>
-    <div onclick="onSpin()" class="padding w">click me for spin— onclick = "onSpin()"
+    <div onclick="onSpin()" class="padding w">&lt;button onclick = "onSpin()"&gt;Spinning Button&lt;/button&gt;
     </div>
-     <div class="section-title">invert colors Example</div>
-    <div onclick="onInv()" class="padding w">click me for invert colors— onclick = "onInvert()"
+    <div class="section-title">Text Colors (onhover)</div>
+
+    <!-- onhover -->
+    <div onmouseover="onR()" class="padding">&lt;button onmouseover = "onR()"&gt;Red&lt;/button&gt;</div>
+    <div onmouseover="onO()" class="padding">&lt;button onmouseover = "onO()"&gt;Orange&lt;/button&gt;</div>
+    <div onmouseover="onY()" class="padding">&lt;button onmouseover = "onY()"&gt;Yellow&lt;/button&gt;</div>
+    <div onmouseover="onG()" class="padding">&lt;button onmouseover = "onG()"&gt;Green&lt;/button&gt;</div>
+    <div onmouseover="onB()" class="padding">&lt;button onmouseover = "onB()"&gt;Blue&lt;/button&gt;</div>
+    <div onmouseover="onP()" class="padding">&lt;button onmouseover = "onP()"&gt;Purple&lt;/button&gt;</div>
+    <div onmouseover="onW()" class="padding">&lt;button onmouseover = "onW()"&gt;White&lt;/button&gt;</div>
+    <div onmouseover="onBw(); onBl()" class="padding">&lt;button onmouseover = "onBw(); onBl()"&gt;Black&lt;/button&gt;
+    </div>
+    <!-- onclick -->
+
+    <div class="section-title">invert colors Example</div>
+    <div onclick="onInv()" class="padding w">&lt;button onclick = "onInv()"&gt;Invert Colors&lt;/button&gt;
+    </div>
+    <!-- onhover -->
+    <div class="section-title">Background Colors(onhover)</div>
+    <div onmouseover="onBr()" class="padding">&lt;button class = "br"&gt;Red&lt;/button&gt;</div>
+    <div onmouseover="onBo()" class="padding w">&lt;button class = "bo"&gt;Orange&lt;/button&gt;</div>
+    <div onmouseover="onBy(); onBl()" class="padding w">&lt;button class = "by"&gt;Yellow&lt;/button&gt;</div>
+    <div onmouseover="onBg()" class="padding w">&lt;button class = "bg"&gt;Green&lt;/button&gt;</div>
+    <div onmouseover="onBb()" class="padding w">&lt;button class = "bb"&gt;Blue&lt;/button&gt;</div>
+    <div onmouseover="onBp()" class="padding w">&lt;button class = "bp"&gt;Purple&lt;/button&gt;</div>
+    <div onmouseover="onBw(); onBl()" class="padding w">&lt;button class = "bw"&gt;White&lt;/button&gt;</div>
+    <div onmouseover="onBbl()" class="padding bbl w">&lt;button class = "bbl"&gt;Black&lt;/button&gt;</div>
+    <div class="section-title">Spin Example</div>
+    <div onmouseover="onSpin()" class="padding w">&lt;button onclick = "onSpin()"&gt;Spinning Button&lt;/button&gt;
+    </div>
+    <div class="section-title">invert colors Example</div>
+    <div onmouseover="onInv()" class="padding w">&lt;button onclick = "onInv()"&gt;Invert Colors&lt;/button&gt;
+    </div>
+    <!-- on dblclick -->
+    <div class="section-title">Text Colors (ondblclick)</div>
+    <div ondblclick="onR()" class="padding">&lt;button ondblclick = "onR()"&gt;Red&lt;/button&gt;</div>
+    <div ondblclick="onO()" class="padding">&lt;button ondblclick = "onO()"&gt;Orange&lt;/button&gt;</div>
+    <div ondblclick="onY()" class="padding">&lt;button ondblclick = "onY()"&gt;Yellow&lt;/button&gt;</div>
+    <div ondblclick="onG()" class="padding">&lt;button ondblclick = "onG()"&gt;Green&lt;/button&gt;</div>
+    <div ondblclick="onB()" class="padding">&lt;button ondblclick = "onB()"&gt;Blue&lt;/button&gt;</div>
+    <div ondblclick="onP()" class="padding">&lt;button ondblclick = "onP()"&gt;Purple&lt;/button&gt;</div>
+    <div ondblclick="onW()" class="padding">&lt;button ondblclick = "onW()"&gt;White&lt;/button&gt;</div>
+    <div ondblclick="onBw(); onBl()" class="padding">&lt;button ondblclick = "onBw(); onBl()"&gt;Black&lt;/button&gt;
+    </div>
+
+    <div class="section-title">Background Colors(ondblclick)</div>
+    <div ondblclick="onBr()" class="padding">&lt;button class = "br"&gt;Red&lt;/button&gt;</div>
+    <div ondblclick="onBo()" class="padding w">&lt;button class = "bo"&gt;Orange&lt;/button&gt;</div>
+    <div ondblclick="onBy(); onBl()" class="padding w">&lt;button class = "by"&gt;Yellow&lt;/button&gt;</div>
+    <div ondblclick="onBg()" class="padding w">&lt;button class = "bg"&gt;Green&lt;/button&gt;</div>
+    <div ondblclick="onBb()" class="padding w">&lt;button class = "bb"&gt;Blue&lt;/button&gt;</div>
+    <div ondblclick="onBp()" class="padding w">&lt;button class = "bp"&gt;Purple&lt;/button&gt;</div>
+    <div ondblclick="onBw(); onBl()" class="padding w">&lt;button class = "bw"&gt;White&lt;/button&gt;</div>
+    <div ondblclick="onBbl()" class="padding bbl w">&lt;button class = "bbl"&gt;Black&lt;/button&gt;</div>
+    <div class="section-title">Spin Example</div>
+    <div ondblclick="onSpin()" class="padding w">&lt;button onclick = "onSpin()"&gt;Spinning Button&lt;/button&gt;
     </div>
     <br><br>
-    <p>by Ayaansh Agrawal copyright© 2026</p>
+  </div>  <div class="section-title">Css  Editor</div>
+  <button class="bg w" onclick="i.srcdoc = t.value">run</button>
+  <div class="row editor">
+    <div class="col-6">
+    
+    <textarea class="bbl w" id="t" placeholder="Write your HTML/CSS/JS here..."><!DOCTYPE html>
+<html lang="en">
+<h&#8203;ead>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
+</h&#8203;ead>
+<b&#8203;ody>
+  <button class="r">Red</button> <button class="o">Orange</button> <button class="y">Yellow</button> <button class="g">Green</button> <button class="b">Blue</button> <button class="p">Purple</button> <button class="w">White</button> <button class="bl">Black</button>
 
-  </div>
+  <br>Background Colors<br>
+  <button class="br">Red</button> <button class="bo">Orange</button> <button class="by">Yellow</button> <button class="bg">Green</button> <button class="bb">Blue</button> <button class="bp">Purple</button> <button class="bw">White</button> <button class="bbl">Black</button>
+
+  <br>Spin Example<br>
+  <button class="spin">Spinning Button</button>
+</b&#8203;ody>
+</html>
+</textarea>
+    </div>
+    <div class="col-6">
+      <iframe class="bw" id="i"></iframe>
+    </div>
+  </div> 
+  
+  
+  <div class="section-title">Js  Editor</div>
+  <button class="bg w" onclick="it.srcdoc = tt.value">run</button>
+  <div class="row editor">
+    <div class="col-6">
+    
+    <textarea class="bbl w" id="tt" placeholder="Write your HTML/CSS/JS here...">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://gist.githack.com/ayaansh0404/575a9ebfef498b2bc557307b311a02c2/raw/zyco.css">
+  <script src="https://gist.githack.com/ayaansh0404/46ea8a6b84142db3a60dfcdda851792b/raw/03ae9ebcb86592a6c7dbda05271d9193cdc4902e/gistfile1.txt"></script>
+</head>
+<body>
+
+  <h3>Text Colors (onclick)</h3>
+  <button onclick="onR()">Red</button>
+  <button onclick="onO()">Orange</button>
+  <button onclick="onY()">Yellow</button>
+  <button onclick="onG()">Green</button>
+  <button onclick="onB()">Blue</button>
+  <button onclick="onP()">Purple</button>
+  <button onclick="onW()">White</button>
+  <button onclick="onBl()">Black</button>
+
+  <h3>Background Colors (onmouseover)</h3>
+  <button onmouseover="onBr()">Red BG</button>
+  <button onmouseover="onBo()">Orange BG</button>
+  <button onmouseover="onBy()">Yellow BG</button>
+  <button onmouseover="onBg()">Green BG</button>
+  <button onmouseover="onBb()">Blue BG</button>
+  <button onmouseover="onBp()">Purple BG</button>
+  <button onmouseover="onBw()">White BG</button>
+  <button onmouseover="onBbl()">Black BG</button>
+
+  <h3>Special Effects (ondblclick)</h3>
+  <button ondblclick="onSpin()">Double Click to Spin</button>
+  <button ondblclick="onInv()">Double Click to Invert</button>
 
 </body>
+</html></textarea>
+    </div>
+    <div class="col-6">
+      <iframe class="bw" id="it"></iframe>
+    </div>
+
+    <br>
+    <footer>
+      <p>by Ayaansh Agrawal copyright© 2026</p>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</body>
+
 </html>
