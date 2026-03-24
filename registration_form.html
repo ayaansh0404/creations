@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <link rel="icon"
+        href="https://cdn-icons-png.flaticon.com/512/2573/2573990.png"/>
+        <title>Ayaansh b-day</title>
+        <style>
+            body{
+                text-align: center;
+                font-family: sans-serif;
+                background:linear-gradient(rgb(33, 185, 236),white);
+                font-size: 1.2em; 
+            }
+            hr{
+                width: 600px; 
+            }
+            button{
+                margin-left: 10px;
+                padding: 10px 20px; 
+                font-size: 1.1em;
+            }
+            div{
+                margin-top: 200px;
+                border-width: 5px;
+                border-radius: 10px;
+                border-color: lightgray;
+                border-style: inset;
+                width: 700px;
+                text-align: center;
+                margin: 200px auto 0 auto;
+                background:linear-gradient(white,rgb(33, 185, 236));
+            }
+            label {
+                font-size: 1.2em;}
+            input[type="text"], 
+            input[type="number"] {
+                width: 300px; 
+                height: 40px;
+                padding: 5px 10px;
+                font-size: 1.1em; 
+            }
+            input[type="submit"] {
+                padding: 10px 20px; 
+                font-size: 1.1em; 
+            }
+            
+        </style>
+        <script>
+            function submitForm(event){ 
+                event.preventDefault(); 
+
+            
+                let para = document.getElementById("mess").innerHTML = "Thank you for your response😊";
+                // para.innerHTML = "Thank you for your response😊";
+                setTimeout(() => {
+                    document.querySelector("form").submit();
+                }, 5000); 
+            }
+        </script>
+     <script>
+    function isValidPhoneNumber(number) {
+        // Remove spaces, dashes, or any non-digit characters
+        const cleaned = number.replace(/\D/g, "");
+        return cleaned.length === 10;
+    }
+
+    function submitForm(event) {
+        event.preventDefault(); // Stop form from submitting immediately
+
+        const phone = document.querySelector('input[name="data[Phone_Number]"]').value;
+        const message = document.getElementById("mess");
+
+        if (!isValidPhoneNumber(phone)) {
+            message.textContent = "❌ Phone number must be exactly 10 digits.";
+            message.style.color = "white";
+            return;
+        }
+
+        // Valid phone number
+        message.textContent = "Thank you for your response😊";
+        message.style.color = "white";
+
+        setTimeout(() => {
+            document.querySelector("form").submit();
+        }, 5000);
+    }
+</script>
+
+    </head>
+    <body>
+        <div>
+        <h1>Ayaansh's birthday party</h1>
+        <hr>
+        <form action="https://sheetdb.io/api/v1/yfcfoej6auqz5" method="post" onsubmit="submitForm(event)">
+        <label for="">Name(s):</label>
+        <input type="text" name="data[First_Name]" required><br><br>
+        <!-- <label for="">Last Name:</label>
+        <input type="text" name="data[Last_Name]" required><br><br>  -->
+        <!-- <label for="">Phone Number:</label>
+        <input type="number" name="data[Phone_Number]" required><br> -->
+        <br><label>Will you be coming?</label>
+        <input value="yes"  type="radio" name="data[response]" required>
+        <label for="">Yes</label>
+        <input value="no"  type="radio" name="data[response]" required>
+        <label for="">No</label>
+        <br><br><input type="submit" value="Submit">
+        <p id="mess"></p>
+        </form>
+        </div>
+    </body>
+</html>
