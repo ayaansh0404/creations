@@ -12,14 +12,16 @@ function Home() {
         <div className="mode-desc">
           Select a mode to start your coding journey!
         </div>
-
-        <Link to="/advanced">
+<div className="row">
+        <div className="col-6"><Link to="/advanced">
           <button>⚡ Advanced</button>
-        </Link>
-
+        </Link></div>
+    <div className="col-6">
         <a href="code/codeBeginer.html" target="_blank" rel="noreferrer">
           <button>👨‍🎓 Beginner</button>
         </a>
+        </div>
+        </div>
       </div>
     </div>
   );

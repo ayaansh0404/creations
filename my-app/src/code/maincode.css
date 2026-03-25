@@ -32,7 +32,24 @@
                 transform: scale(1.05);
             }
         }
-
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+body {
+  overflow-x: hidden;
+}
+.page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
         .main-btns {
             background-color: white;
             position: absolute;
