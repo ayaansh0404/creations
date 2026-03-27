@@ -1,6 +1,7 @@
 import "./maincode.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CodeAdvanced from "./codeAdvanced.jsx";
+import CodeBegginer from "./codeBwgnner.jsx";
 import Navbarcode  from "./navbarcode.jsx";
 
 function Home() {
@@ -32,6 +33,7 @@ export default function MainCode() {
     <Router><Navbarcode/>
       <Routes>
         <Route path="/advanced" element={<CodeAdvanced />} />
+        <Route path="/begginer" element={<CodeBiginner />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>

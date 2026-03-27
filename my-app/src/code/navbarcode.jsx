@@ -1,15 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbarcode() {
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value) {
+      navigate(value);
+    }
+  };
+
   return (
-    <div className="row bg-danger p-2 rouded-5">
-      <div className="col-6"><Link to="/advanced">
-        <button>Advanced</button>
-      </Link></div>
-      <Link className="col-6" to="/beginner">
-        <button className="bg-danger">Beginner</button>
-      </Link>
+    <div className="row bg-danger p-2 rounded-5">
+      <select
+        className="col-6 bg-success text-white rounded-5 p-3 w-2"
+        onChange={handleChange}
+        defaultValue=""
+      >
+        <option value="" disabled>Select Mode</option>
+        <option value="/advanced">Advanced</option>
+        <option value="/beginner">Beginner</option>
+      </select>
     </div>
   );
 }

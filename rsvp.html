@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neon Party Registration</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background: linear-gradient(270deg, #000000, #0f0f2e, #000000);
+      background-size: 600% 600%;
+      animation: bgMove 10s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .box {
+      margin-top: 120px;
+      width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .neon {
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* 🎮 Game buttons */
+    .choice {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 5px #00ffcc;
+    }
+
+    .choice:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    /* 🎉 Selected glow */
+    input[type="radio"]:checked + .choice {
+      background: #00ffcc;
+      color: black;
+      box-shadow:
+        0 0 10px #00ffcc,
+        0 0 30px #00ffcc,
+        0 0 60px #00ffcc;
+      transform: scale(1.15);
+    }
+
+    /* 🎵 Pulse animation */
+    @keyframes pulseBeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulseBeat 0.6s ease;
+    }
+
+    button {
+      width: 80%;
+      padding: 10px;
+      margin-top: 15px;
+      background: transparent;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00ffcc;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box animate__animated animate__fadeInDown">
+
+  <h2 class="neon animate__animated animate__pulse animate__infinite">
+    🎉 Party Registration
+  </h2>
+
+  <form id="myForm">
+    <input type="text" name="name" placeholder="Enter your name" required>
+
+    <h3>Will you come?</h3>
+
+    <!-- 🎮 Choices -->
+    <label>
+      <input type="radio" name="response" value="Yes" required>
+      <span class="choice">✅ Yes</span>
+    </label>
+
+    <label>
+      <input type="radio" name="response" value="No">
+      <span class="choice">❌ No</span>
+    </label>
+
+    <br>
+
+    <button type="submit">Submit 🎉</button>
+  </form>
+
+  <p id="msg"></p>
+
+</div>
+
+<script>
+const scriptURL = "PASTE_YOUR_WEB_APP_URL_HERE";
+
+/* 🔊 Sound effects */
+const yesSound = new Audio("https://www.myinstants.com/media/sounds/correct.mp3");
+const noSound = new Audio("https://www.myinstants.com/media/sounds/wrong.mp3");
+
+/* 🎵 Background music */
+const music = new Audio("https://www.myinstants.com/media/sounds/party.mp3");
+music.loop = true;
+music.volume = 0.3;
+
+/* Start music on first click */
+document.body.addEventListener("click", () => {
+  music.play().catch(() => {});
+}, { once: true });
+
+/* 🎮 Selection effects */
+document.querySelectorAll('input[name="response"]').forEach(input => {
+  input.addEventListener("change", function() {
+
+    const choice = this.nextElementSibling;
+
+    // 🔊 Play sound
+    if (this.value === "Yes") {
+      yesSound.play();
+    } else {
+      noSound.play();
+    }
+
+    // 🎵 Pulse animation
+    choice.classList.add("pulse");
+    setTimeout(() => choice.classList.remove("pulse"), 600);
+  });
+});
+
+/* 🎉 Submit */
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const msg = document.getElementById("msg");
+  const formData = new FormData(form);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+    msg.className = "neon animate__animated animate__bounceIn";
+    msg.innerText = "🎉 You're registered!";
+
+    form.reset();
+  })
+  .catch(() => {
+    msg.innerText = "❌ Error submitting form";
+    msg.style.color = "red";
+  });
+});
+</script>
+
+</body>
+</html>
