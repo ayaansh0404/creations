@@ -1,27 +1,48 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbarcode() {
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    if (value) {
-      navigate(value);
-    }
-  };
-
   return (
-    <div className="row bg-danger p-2 rounded-5">
-      <select
-        className="col-6 bg-success text-white rounded-5 p-3 w-2"
-        onChange={handleChange}
-        defaultValue=""
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3 shadow">
+      
+      {/* Logo */}
+      <Link className="navbar-brand fw-bold" to="/">
+        ⚡ CodeLab
+      </Link>
+
+      {/* Toggle button (mobile) */}
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
       >
-        <option value="" disabled>Select Mode</option>
-        <option value="/advanced">Advanced</option>
-        <option value="/beginner">Beginner</option>
-      </select>
-    </div>
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      {/* Links */}
+      <div className="collapse navbar-collapse" id="navMenu">
+        <ul className="navbar-nav ms-auto gap-2">
+
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" to="/beginner">
+              <p className="r">Beginner</p>
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" to="/advanced">
+              Advanced
+            </Link>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
   );
 }

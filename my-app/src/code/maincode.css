@@ -95,3 +95,10 @@ html, body, #root {
   padding: 0;
   height: 100%;
 }
+.main-btns button {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

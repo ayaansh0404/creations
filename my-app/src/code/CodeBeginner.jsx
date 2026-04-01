@@ -21,9 +21,7 @@ export default function CodeBeginner() {
     const js = `<script>${jsRef.current.value}<\/script>`;
 
     const a = document.createElement("a");
-    a.href =
-      "data:text/html;charset=utf-8," +
-      encodeURIComponent(html + css + js);
+    a.href = "data:text/html;charset=utf-8," + encodeURIComponent(html + css + js);
     a.download = "index.html";
     a.click();
   };
@@ -47,32 +45,26 @@ export default function CodeBeginner() {
   };
 
   return (
-    <div className="container-fluid bbl">
-
+    <div className="container-fluid">
       <div className="row toolbar">
         <div className="col-4">
           <button onClick={run}>▶ RUN</button>
         </div>
-
         <div className="col-4">
           <button onClick={saveFile}>💾 SAVE</button>
         </div>
-
         <div className="col-4">
           <button onClick={openFile}>📂 OPEN</button>
         </div>
       </div>
 
       <div className="row">
-        <textarea ref={htmlRef} className="col" placeholder="html" />
-        <textarea ref={cssRef} className="col" placeholder="css" />
-        <textarea ref={jsRef} className="col" placeholder="javascript" />
+        <textarea ref={htmlRef} className="col" placeholder="HTML" />
+        <textarea ref={cssRef} className="col" placeholder="CSS" />
+        <textarea ref={jsRef} className="col" placeholder="JS" />
       </div>
 
-      <div className="row">
-        <iframe ref={iframeRef} title="output" />
-      </div>
-
+      <iframe ref={iframeRef} title="output" />
     </div>
   );
 }
