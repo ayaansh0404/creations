@@ -10,7 +10,7 @@ function Home() {
       <div className="main-btns bg-white">
         <h1>Choose Your Mode</h1>
 
-        <div className="mode-desc animate__animated animate__rollIn">
+        <div className="mode-desc animate__animated animate__fadeIn">
           Select a mode to start your coding journey!
         </div>
 

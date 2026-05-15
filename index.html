@@ -1,159 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<style>
-body {
-  padding: 20px;
-  color: white;
-  background: linear-gradient(270deg, #000000, #0f0f2e, #000000);
-  background-size: 600% 600%;
-  animation: bgMove 10s ease infinite;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-
-
-
-/* Text spacing using responsive units */
-#h3 {
-  margin-left: 2vw;
-}
-
-#invited {
-   margin-top: 20px;
-  margin-bottom: 20px;
- font-size: 100px;
+ <style>/* ❄️ Elsa Ice Theme Background */
+/* ❄️ Elsa Ice Theme Background */
+.bb {
+  margin: 0;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-}
-#time {
-  margin-left: 700px;
-  display: flex;
-}
-#two {
-  margin-left: 80vw;
-}
-
-/* Responsive big text */
-.three {
-  margin-top: 20px;
-  margin-bottom: 20px;
- font-size: 400px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  overflow: hidden;
+  position: relative;
+
+  /* smooth animated gradient */
+  background: linear-gradient(
+    -45deg,
+    #e5c0ff,
+    #8ecffa,
+    #caa7ff,
+    #7dbdff
+  );
+
+  background-size: 400% 400%;
+  animation: colorChange 8s ease infinite;
 }
 
-/* Optional: keep headings left aligned */
-h3, h1, h2 {
-  text-align: left;
-  text-shadow: 
-  0px 0px 20px #2323FF,
-  0px 0px 40px #2323FF,
-  0px 0px 60px #2323FF,
-  0px 0px 80px #2323FF;
-}
-hr {
-  border: none;
-  height: 3px;
-  background-color: white;
-  margin: 20px 0;
+/* ❄️ smooth movement instead of snapping */
+@keyframes colorChange {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+/* ❄️ Snow layer (SAFE, does NOT block clicks) */
+.bb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 45px 45px;
+  opacity: 0.18;
+
+  animation: drift 25s linear infinite;
+}
+
+/* snow movement */
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* ❄️ Main text */
+.w {
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+
+  color: #1a3b4d;
+  text-shadow:
+    0 2px 10px rgba(180, 230, 255, 0.6),
+    0 0 20px rgba(200, 240, 255, 0.4);
+
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* ❄️ Glass icy button */
+button {
+  padding: 14px 32px;
+  font-size: 18px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+
+  color: #0f2f3f;
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 0 10px rgba(255,255,255,0.6);
+
+  transition: all 0.2s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 15px 40px rgba(120, 200, 255, 0.25),
+    inset 0 0 14px rgba(255,255,255,0.8);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .w {
+    font-size: 36px;
+    padding: 0 15px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 22px;
+  }
+}
 </style>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>ayaansh's Birthday</title>
+  <!-- Animate.css (for animations like lightSpeedInRight) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aizels Birthday</title>
 </head>
+<body class="bb">
+  <h1 id="text" class="w">Guess what</h1>
+<button onclick="guess()" id="guess">what?</button>
 
-<body class = "text-white bg-dark"><br><br><br><br><br><br>
 
-<h3 id="h3">dun</h3>
-<h2 id="invited" class="text-center"></h2>
 
-<h3 id="two"></h3>
-<span><h1 id="three" class="text-center three"></h1><div style="text-align:center; margin-top:200px;">
-  <button onclick="startParty()" class="btn btn-success btn-lg">
-    🎉 Start
-  </button>
-</div>
-<h2 id="countdown"></h2></span>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script>
+  <script>
   
-function startParty() {
-
-  let sound = new Audio("https://www.myinstants.com/media/sounds/dun-dun-dun.mp3");
+function guess() {
+ 
+  
+  let sound = new Audio("https://actions.google.com/sounds/v1/cartoon/magic_chime.ogg");
   sound.play();
 
-  document.querySelector("button").style.display = "none";
+  document.getElementById("guess").style.display = "none";
 
   setTimeout(function () {
-    document.getElementById('h3').style.display = "none";
-    document.getElementById('two').innerHTML = "dun";
-  }, 600);
+    document.getElementById('text').innerHTML = "ITS ELSA TIME!!!";
+  }, 2000);
 
   setTimeout(function () {
-    document.getElementById('two').style.display = "none";
+    document.getElementById('text').innerHTML = "Why you may ask?<br><button onclick='why()'>why?</button>";
+ 
+  }, 3000);
+ 
 
-    let three = document.getElementById('three');
-    three.style.display = "block";
-    three.innerHTML = "DUN";
-    three.classList.add('animate__animated', 'animate__tada');
+  
+}
+function why() {
+  document.getElementById('text').innerHTML = "";
+  let sound = new Audio("https://www.myinstants.com/media/sounds/outro-song.mp3");
+  sound.play();
+  
+  
+  
 
-  }, 1000);
 
-  setTimeout(function () {
-    document.getElementById('three').style.display = "none";
+  
 
-    let ayaansh = document.getElementById('invited');
-    ayaansh.classList.add('animate__animated', 'animate__lightSpeedInRight');
+    setTimeout(function () {
 
-    ayaansh.innerHTML = "It's Ayaansh's Birthday!!!🎉🎂";
+    document.getElementById("text").innerHTML = "3";
+
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "2";
+    }, 1000);
+
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "1";
+    }, 2000);
+
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "ITS AIZELS BIRTHDAY!!!!!!!🎉";
+
+    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
 
     if (typeof confetti === "function") {
       confetti({
-        particleCount: 150,
-        spread: 70,
+        particleCount: 1500,
+        spread: 700,
         origin: { y: 0.6 }
       });
     }
 
-  }, 4000);
+    }, 3000);
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "ITS AIZEL'S BIRTHDAY!!!!!!!🎉";
 
-  setTimeout(function () {
-    let ayaansh = document.getElementById('invited');
-    ayaansh.innerHTML = "and YOU are invited!!!!";
-  }, 6000);
+    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
 
-  setTimeout(function () {
-    let ayaansh = document.getElementById('invited');
+    if (typeof confetti === "function") {
+      confetti({
+        particleCount: 1500,
+        spread: 7000,
+        origin: { y: 0.6 }
+      });
+    }
 
-    ayaansh.classList.add('animate__animated', 'animate__fadeOut');
+    }, 6000);
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "ITS AIZEL'S BIRTHDAY!!!!!!!🎉";
 
-    ayaansh.innerHTML = `
-      It's a neon party, so dress up in your <br>
-      brightest clothes and get ready to dance the night away!🪩
-      <hr>
-    `;
+    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
 
-    let three = document.getElementById('three');
-    three.style.display = "block";
-    three.innerHTML = `Date-April 5 at 5:30-8:30p<br>Place- 23787 Farmington hills court<br><br><a href="registration_form.html" target="_blank"><button class = "btn btn-success">RSVP</button></a>`;
-    three.style.fontSize = "20px";
+    if (typeof confetti === "function") {
+      confetti({
+        particleCount: 1500,
+        spread: 7000,
+        origin: { y: 0.6 }
+      });
+    }
 
-  }, 9000);
+    }, 9000);
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "tell this to Elsa <br><button onclick='mini()'>play</button>";
 
+  
+
+    }, 12000);
+    
+      }, 6000);
+
+ 
 }
-</script>
+ function mini() {
+    let sound = new Audio("https://www.myinstants.com/media/sounds/we-love-you-elsa.mp3");
+    sound.play();
+  }
 
+</script>
 </body>
 </html>
