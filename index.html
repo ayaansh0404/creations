@@ -70,6 +70,7 @@
   }
 }
 
+
 /* ❄️ Main text */
 .w {
   font-size: 52px;
@@ -88,27 +89,32 @@
 }
 
 /* ❄️ Glass icy button */
-button {
-  padding: 14px 32px;
-  font-size: 18px;
+button{
+  all: unset !important;
 
-  border: 1px solid rgba(255,255,255,0.6);
-  border-radius: 999px;
+  padding: 14px 32px !important;
+  font-size: 18px !important;
 
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.6) !important;
+  border-radius: 999px !important;
 
-  color: #0f2f3f;
-  cursor: pointer;
+  background: rgba(255,255,255,0.35) !important;
+  backdrop-filter: blur(10px) !important;
+
+  color: #0f2f3f !important;
+
+  cursor: pointer !important;
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.08),
-    inset 0 0 10px rgba(255,255,255,0.6);
+    inset 0 0 10px rgba(255,255,255,0.6) !important;
 
-  transition: all 0.2s ease;
+  transition: all 0.2s ease !important;
 
-  position: relative;
-  z-index: 2;
+  position: relative !important;
+  z-index: 2 !important;
+
+  display:inline-block !important;
 }
 
 button:hover {
@@ -134,7 +140,7 @@ button:active {
   }
 }
 </style>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <!-- Animate.css (for animations like lightSpeedInRight) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
@@ -147,44 +153,44 @@ button:active {
 </head>
 <body class="bb">
   <h1 id="text" class="w">Guess what</h1>
-<button onclick="guess()" id="guess">what?</button>
 
 
+<button id="guess" onclick="guess()">what</button>
 
   <script>
-  alert("please turn on you volume for the next part");
+let t1, t2;
+
+alert("please turn on your volume for the next part");
+
 function guess() {
- 
-  
+
   let sound = new Audio("https://actions.google.com/sounds/v1/cartoon/magic_chime.ogg");
   sound.play();
 
-  document.getElementById("guess").style.display = "none";
+  document.getElementById("guess").remove();
 
-  setTimeout(function () {
+  t1 = setTimeout(function () {
     document.getElementById('text').innerHTML = "ITS ELSA TIME!!!";
   }, 2000);
 
-  setTimeout(function () {
-    document.getElementById('text').innerHTML = "Why you may ask?<br><button onclick='why()'>why?</button>";
- 
+  t2 = setTimeout(function () {
+    document.getElementById('text').innerHTML =
+      "Why you may ask?<br><button onclick='why()'>why?</button>";
   }, 3000);
- 
 
-  
 }
+
 function why() {
+
+  clearTimeout(t1);
+  clearTimeout(t2);
+
   document.getElementById('text').innerHTML = "";
+
   let sound = new Audio("https://www.myinstants.com/media/sounds/outro-song.mp3");
   sound.play();
-  
-  
-  
 
-
-  
-
-    setTimeout(function () {
+  setTimeout(function () {
 
     document.getElementById("text").innerHTML = "3";
 
@@ -197,63 +203,97 @@ function why() {
     }, 2000);
 
     setTimeout(function () {
-      document.getElementById("text").innerHTML = "ITS AIZELS BIRTHDAY!!!!!!!🎉<br><img src='kiwi-no-bg-img.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
+      document.getElementById("text").innerHTML =
+        "ITS AIZELS BIRTHDAY!!!!!!!🎉<br><img src='kiwi-no-bg-img.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    if (typeof confetti === "function") {
-      confetti({
-        particleCount: 1500,
-        spread: 700,
-        origin: { y: 0.6 }
-      });
-    }
+      document.getElementById('text').classList.add(
+        'animate__animated',
+        'animate__lightSpeedInRight'
+      );
+
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 1500,
+          spread: 700,
+          origin: { y: 0.6 }
+        });
+      }
 
     }, 3000);
+
     setTimeout(function () {
-      document.getElementById("text").innerHTML = "ITS AIZEL'S BIRTHDAY!!!!!!!<br><img src='sitting-kiwi-removebg-preview.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
+      document.getElementById("text").innerHTML =
+        "ITS AIZEL'S BIRTHDAY!!!!!!!<br><img src='sitting-kiwi-removebg-preview.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    if (typeof confetti === "function") {
-      confetti({
-        particleCount: 1500,
-        spread: 7000,
-        origin: { y: 0.6 }
-      });
-    }
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 1500,
+          spread: 7000,
+          origin: { y: 0.6 }
+        });
+      }
 
     }, 6000);
+
     setTimeout(function () {
-      document.getElementById("text").innerHTML = "ITS AIZEL'S BIRTHDAY!!!!!!!<br><img src='kiwi-standing-nobg.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    document.getElementById('text').classList.add('animate__animated', 'animate__lightSpeedInRight');
+      document.getElementById("text").innerHTML =
+        "ITS AIZEL'S BIRTHDAY!!!!!!!<br><img src='kiwi-standing-nobg.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
-    if (typeof confetti === "function") {
-      confetti({
-        particleCount: 1500,
-        spread: 7000,
-        origin: { y: 0.6 }
-      });
-    }
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 1500,
+          spread: 7000,
+          origin: { y: 0.6 }
+        });
+      }
 
     }, 9000);
-    setTimeout(function () {
-      document.getElementById("text").innerHTML = "tell this to Elsa <br><button onclick='mini()'>play</button>";
 
-  
+    setTimeout(function () {
+
+      document.getElementById("text").innerHTML = `
+  <h1>here are some photos of Aizel(the birthday girl!)</h1><br><br>
+      <div style="
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:20px;
+      ">
+        <img src='kiwi-standing-nobg.png' style='width:180px;'>
+        <img src='sitting-kiwi-removebg-preview.png' style='width:180px;'>
+        <img src='kiwi-no-bg-img.png' style='width:180px;'>
+        <img src='pocket-kiwi.png' style='width:180px;'>
+        <img src='happy.png' style='width:180px;'>
+        <img src='glasses-kiwi.png' style='width:180px;'>
+
+      </div>
+
+      `;
 
     }, 12000);
-    
-      }, 6000);
 
- 
+    setTimeout(function () {
+      document.getElementById("text").innerHTML =
+        "its gonna be at candy land in dream world";
+    }, 17000);
+
+    setTimeout(function () {
+       document.getElementById("text").innerHTML =
+        "";
+      let sound = new Audio("https://www.myinstants.com/media/sounds/neco-just-kidding.mp3");
+      sound.play();
+    }, 23000);
+    setTimeout(function () {
+       document.getElementById("text").innerHTML =
+        `Of 𝒸𝑜𝓊𝓇𝓈𝑒 its gonna be at - Date-june 19 2026 at 6:00-8:00<br>Place- 23787 Farmington hills court<br><br><a href="registration_form.html" target="_blank"><button class = "btn btn-success">RSVP</button></a>`;
+    }, 25000);
+
+  }, 6000);
+
 }
- function mini() {
-    let sound = new Audio("https://www.myinstants.com/media/sounds/we-love-you-elsa.mp3");
-    sound.play();
-  }
-
 </script>
 </body>
 </html>
