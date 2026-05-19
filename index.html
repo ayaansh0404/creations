@@ -239,6 +239,7 @@ function why() {
 
     setTimeout(function () {
 
+
       document.getElementById("text").innerHTML =
         "ITS AIZEL'S BIRTHDAY!!!!!!!<br><img src='kiwi-standing-nobg.png' style='width:300px; filter: drop-shadow(0 0 20px rgba(180,230,255,0.8));'>";
 
@@ -253,7 +254,10 @@ function why() {
     }, 9000);
 
     setTimeout(function () {
-
+for (let i = 0; i < 2; i++) {
+   let sound = new Audio("https://www.myinstants.com/media/sounds/game-success-2.mp3");
+      sound.play();
+}
       document.getElementById("text").innerHTML = `
   <h1>here are some photos of Aizel(the birthday girl!)</h1><br><br>
       <div style="
@@ -287,6 +291,10 @@ function why() {
       sound.play();
     }, 23000);
     setTimeout(function () {
+     let sound = new Audio('https://www.myinstants.com/media/sounds/sweet-little-bumblebee.mp3');
+sound.loop = true; 
+sound.play();
+
        document.getElementById("text").innerHTML =
         `Of 𝒸𝑜𝓊𝓇𝓈𝑒 its gonna be at - Date-june 19 2026 at 6:00-8:00<br>Place- 23787 Farmington hills court<br><br><a href="registration_form.html" target="_blank"><button class = "btn btn-success">RSVP</button></a>`;
     }, 25000);
