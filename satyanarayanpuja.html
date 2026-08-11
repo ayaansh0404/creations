@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+
+             body {
+    background-color: #fff3e0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  #door-toggle {
+    display: none;
+  }
+.door-container {
+  position: relative;
+  width: min(90vw, 600px);
+  height: min(75vh, 650px);
+  border: 5px solid #5d4037;
+  border-bottom: none;
+  border-top-left-radius: 50% 25%;
+  border-top-right-radius: 50% 25%;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  perspective: 1000px;
+}
+
+.invitation-text {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+}
+  .doors-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+.door-leaf {
+  width: 50%;
+  height: 100%;
+  background-color: #8d6e63;
+  border: 2px solid #5d4037;
+  box-sizing: border-box;
+  transition: transform 1.5s ease-in-out;
+  position: relative;
+}
+
+ #doorone {
+  border-top-left-radius: 100% 40%;
+  transform-origin: left center;
+}
+
+#doortwo {
+  border-top-right-radius: 100% 40%;
+  transform-origin: right center;
+}
+
+  #doorone::after, #doortwo::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    width: 12px;
+    height: 12px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+
+  #doorone::after { right: 8px; }
+  #doortwo::after { left: 8px; }
+
+ .door-container.open #doorone {
+  transform: rotateY(-130deg);
+}
+
+.door-container.open #doortwo {
+  transform: rotateY(130deg);
+}
+
+  #oppen {
+    margin-top: 30px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #e65100;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.1s;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+  }
+
+  #oppen:hover {
+    background-color: #bf360c;
+  }
+
+  #oppen:active {
+    transform: scale(0.98);
+  }
+
+  #door-toggle:checked ~ label #oppen {
+    display: none;
+  }
+ .vishnu-img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+</style>
+</head>
+<body>
+    <div id="text">
+        <h1>
+            lets go to a temple.<br>
+            <button onclick="which()">which one?</button>
+        </h1>
+    </div>
+
+<script>
+function which() {
+    setTimeout(function () {
+        document.getElementById('text').innerHTML =
+        "<h1>what about the SATYANARAYAN temple?<br><button onclick='go()'>ok, lets go</button></h1>";
+    }, 1000);
+}
+
+function go() {
+    setTimeout(function () {
+
+      
+
+        document.getElementById('text').innerHTML = `
+            <input type="checkbox" id="door-toggle">
+
+          <div class="door-container bg-dark">
+ <div id="invitetext" class="invitation-text">
+    <img src="vishnu.png" class="vishnu-img">
+    <img src="vishnu.png" class="vishnu-img">
+</div>
+
+  <div class="doors-wrapper">
+    <div id="doorone" class="door-leaf"></div>
+    <div id="doortwo" class="door-leaf"></div>
+  </div>
+</div>
+            <label for="door-toggle">
+                <div onclick="openn()" id="oppen">open</div>
+            </label>
+        `;
+    }, 1000);
+}function openn() {
+
+  // Open the temple doors
+  document.querySelector(".door-container").classList.add("open");
+
+  // Play aarti
+  let sound = new Audio("https://www.myinstants.com/media/sounds/aarti.mp3");
+  sound.play();
+
+  // Show invitation after 11 seconds
+  setTimeout(function () {
+    document.getElementById("invitetext").innerHTML = `
+      <div style="
+        color:white;
+        font-size:clamp(24px,5vw,48px);
+        font-weight:bold;
+        text-align:center;
+        width:100%;
+      ">
+        ✨ You are invited ✨<br>
+        to the Satyanarayan Puja 🙏
+      </div>
+    `;
+  }, 15000);
+}
+
+</script>
+</body>
+</html>

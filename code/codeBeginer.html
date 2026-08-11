@@ -80,9 +80,9 @@
 <body class="bbl">
     <div class="container-fluid">
         <div class="row toolbar">
-            <div class="col-4"><button onclick="run()">▶ RUN</button></div>
-            <div class="col-4"><button onclick="const h=document.getElementById('h').value,c='<style>'+document.getElementById('c').value+'</style>',j='<script>'+document.getElementById('j').value+'<\/script>',a=document.createElement('a');a.href='data:text/html;charset=utf-8,'+encodeURIComponent(h+c+j);a.download='index.html';a.click();">💾 SAVE</button></div>
-            <div class="col-4"><button onclick="let i=document.createElement('input');i.type='file';i.onchange=e=>{let f=e.target.files[0],r=new FileReader();r.onload=a=>document.getElementById('h').value=a.target.result;r.readAsText(f)};i.click()">📂 OPEN</button></div>
+            <div class="col-6"><button onclick="run()">▶ RUN</button></div>
+            <div class="col-6"><a href="maincode.html"><button >🏠home</button></a></div>
+          
         </div>
 
         <div class="row">

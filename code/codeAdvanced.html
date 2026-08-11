@@ -70,15 +70,10 @@
     <div class="toolbar">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <button onclick="i.srcdoc = t.value">▶ RUN</button>
                 </div>
-                <div class="col-4">
-                    <button onclick="const a=document.createElement('a'); a.href='data:text/html;charset=utf-8,'+encodeURIComponent(t.value); a.download='index.html'; a.click();">💾 SAVE</button>
-                </div>
-                <div class="col-4">
-                    <button onclick="let input=document.createElement('input');input.type='file';input.onchange=e=>{let f=e.target.files[0];let r=new FileReader();r.onload=a=>t.value=a.target.result;r.readAsText(f)};input.click()">📂 OPEN</button>
-                </div>
+               <div class="col-6"><a href="maincode.html"><button >🏠home</button></a></div>
             </div>
         </div>
     </div>  

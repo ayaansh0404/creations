@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Full Screen Carousel</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #212529;
+        }
+
+        #imageCarousel {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .carousel-inner,
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            width: 100vh;
+            height: 100vw;
+
+            object-fit: contain;
+
+            /* Your pictures are sideways */
+            transform: rotate(90deg);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div
+        id="imageCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+    >
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button
+                type="button"
+                data-bs-target="#imageCarousel"
+                data-bs-slide-to="0"
+                class="active">
+            </button>
+
+            <button
+                type="button"
+                data-bs-target="#imageCarousel"
+                data-bs-slide-to="1">
+            </button>
+            <button
+                type="button"
+                data-bs-target="#imageCarousel"
+                data-bs-slide-to="2">
+            </button>
+            <button
+                type="button"
+                data-bs-target="#imageCarousel"
+                data-bs-slide-to="3">
+            </button>
+        </div>
+
+
+        <!-- Images -->
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="image-wrapper">
+                    <img src="sleep.jpeg" alt="Sleep">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="cereal.jpeg" alt="Cereal">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="swimteam.jpeg" alt="Swim Team">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="bubblegum.jpeg" alt="Bubblegum">
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Previous -->
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+
+        <!-- Next -->
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>
