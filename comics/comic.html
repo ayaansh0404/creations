@@ -1,90 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Full Screen Carousel</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            background-color: #212529;
-        }
+   
+        <style>
+  body { 
+    margin: 0; 
+    background-color: #212529; 
+  } 
+  #imageCarousel { 
+    width: 100vw; 
+    height: 85vh; /* Shrinks carousel to make room for the footer */
+  } 
+  .carousel-inner, .carousel-item { 
+    width: 100%; 
+    height: 100%; 
+  } 
+  .image-wrapper { 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+  } 
+  .image-wrapper img { 
+    width: 100vh; 
+    height: 100vw; 
+    object-fit: contain; 
+    transform: rotate(90deg); 
+    margin-left: 10px; 
+    margin-right: 10px; 
+  } 
+  #updown img { 
+    width: 100vh; 
+    height: 100vw; 
+    object-fit: contain; 
+    transform: rotate(-90deg); 
+  } 
+  .carousel-control-prev, .carousel-control-next { 
+    width: 10%; 
+  }
+</style>
 
-        #imageCarousel {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .carousel-inner,
-        .carousel-item {
-            width: 100%;
-            height: 100%;
-        }
-
-        .image-wrapper {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .image-wrapper img {
-            width: 100vh;
-            height: 100vw;
-
-            object-fit: contain;
-
-            /* Your pictures are sideways */
-            transform: rotate(90deg);
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 10%;
-        }
-    </style>
 </head>
 
 <body>
 
-    <div
-        id="imageCarousel"
-        class="carousel slide"
-        data-bs-ride="carousel"
-    >
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <!-- Indicators -->
         <div class="carousel-indicators">
-            <button
-                type="button"
-                data-bs-target="#imageCarousel"
-                data-bs-slide-to="0"
-                class="active">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active">
             </button>
 
-            <button
-                type="button"
-                data-bs-target="#imageCarousel"
-                data-bs-slide-to="1">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1">
             </button>
-            <button
-                type="button"
-                data-bs-target="#imageCarousel"
-                data-bs-slide-to="2">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2">
             </button>
-            <button
-                type="button"
-                data-bs-target="#imageCarousel"
-                data-bs-slide-to="3">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3">
+            </button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4">
+            </button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="5">
+            </button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="6">
             </button>
         </div>
 
@@ -114,37 +101,46 @@
                     <img src="bubblegum.jpeg" alt="Bubblegum">
                 </div>
             </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="goldshop.jpeg" alt="Gold Shop">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div id="updown" class="image-wrapper">
+                    <img src="library.jpeg" alt="Library">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div id="updown" class="image-wrapper">
+                    <img src="rain.jpeg" alt="Rain">
+                </div>
+            </div>
 
         </div>
 
 
         <!-- Previous -->
-        <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#imageCarousel"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
 
             <span class="carousel-control-prev-icon"></span>
         </button>
 
 
         <!-- Next -->
-        <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#imageCarousel"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
 
             <span class="carousel-control-next-icon"></span>
         </button>
 
     </div>
+<footer class="text-center bg-danger p-4">
+   <p class="text-white">&copy; 2026 Comic Strips by Ayaansh Agrawal. All rights reserved. New comics uploaded daily!</p>
+</footer>
 
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
     </script>
 
 </body>
+
 </html>
