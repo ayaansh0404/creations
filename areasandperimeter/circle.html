@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>area of a Circle</h1>
+    <p>Enter the radius of the circle:</p>  
+    <input type="number" id="radius" placeholder="Radius" oninput="toggleInputs()">
+    <p>or</p>
+    <input type="number" id="diameter" placeholder="Diameter" oninput="toggleInputs()">
+    <button onclick="calculateArea()">Calculate Area</button>
+    <p id="result"></p>
+
+    <script>
+        function toggleInputs() {
+            let radiusInput = document.getElementById("radius");
+            let diameterInput = document.getElementById("diameter");
+            diameterInput.disabled = radiusInput.value !== "";
+            radiusInput.disabled = diameterInput.value !== "";
+        }
+        function calculateArea() {
+            let nradius = parseFloat(document.getElementById("radius").value);
+            let dia = parseFloat(document.getElementById("diameter").value);
+            let radius = nradius * nradius || (dia / 2) * (dia / 2);
+            let area = 3.14159 * radius
+            document.getElementById("result").innerHTML = `The area of the circle is: ${area} or ${radius}π`;
+        }
+    </script>   
+    <h1>perimeter of a Circle</h1>
+    <p>Enter the radius of the circle:</p>  
+    <input type="number" id="radiuss" placeholder="radius" oninput="toggleInputss()">
+    <p>or</p>
+    <input type="number" id="diameterss" placeholder="diameters" oninput="toggleInputss()">
+    <button onclick="calculatePerimeter()">Calculate Perimeter</button>
+    <p id="resultss"></p>
+
+    <script>
+        function toggleInputss() {  
+            let radiusInputss = document.getElementById("radiuss");
+            let diameterInputss = document.getElementById("diameterss");
+            diameterInputss.disabled = radiusInputss.value !== "";
+            radiusInputss.disabled = diameterInputss.value !== "";
+        }
+        function calculatePerimeter() {
+           let radiusInputs = parseFloat(document.getElementById("radiuss").value);
+            let diameterInputs = parseFloat(document.getElementById("diameterss").value);
+            let radiuss = radiusInputs * 2 * 3.14159 || diameterInputs * 3.14159;
+            document.getElementById("resultss").innerHTML = `the perimeter of this circle is ${radiuss}`;
+        }
+    </script>   
+
+    <h1>Area and Perimeter of a square</h1>
+    </h1>
+</body>
+</html>
